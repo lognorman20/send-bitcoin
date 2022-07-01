@@ -10,13 +10,12 @@ fn receive_bitcoin() {
 fn send_bitcoin() {
     println!("Sending some Bitcoin!");
     let clients = vec!["Obama", "Trump", "Biden", "Clinton"];
+    
     println!("Who do you want to send some Bitcoin to?");
-    // the &clients only references the values of the vector. this
-    // is called borrowing in rust
     for client in &clients {
-        print!("{} ", client);
+        print!("{} ", client.trim());
     }
-
+    println!("\n");
     let mut recipient = String::new();
     io::stdin().read_line(&mut recipient);
 
@@ -26,7 +25,9 @@ fn send_bitcoin() {
         let mut amount = String::new();
         io::stdin().read_line(&mut amount);
 
-        println!("You sent {} Bitcoin to {}!", amount, recipient);
+        println!("You sent {} Bitcoin to {}!", amount.trim(), &recipient.trim());
+    } else {
+        println!("\n{} is not in your contacts, could not send Bitcoin.", &recipient.trim());
     }
     println!("");
 }
