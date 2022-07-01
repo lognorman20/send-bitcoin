@@ -1,6 +1,12 @@
 use std::io;
 use rand::Rng;
 
+fn strings() {
+    // let slice = "cheese";
+    // let slice_str: &str = "butter";
+    let string: String = String::from("queso");
+}
+
 fn receive_bitcoin() {
     println!("Receiving some Bitcoin!");
     let amount = rand::thread_rng().gen_range(1, 10);
